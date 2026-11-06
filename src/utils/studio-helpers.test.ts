@@ -8,6 +8,7 @@ import {
   PortfolioItem,
   PRICING_PACKAGES,
   formatPrice,
+  validateBriefRequest,
 } from './studio-helpers';
 
 test('validateContactForm rejects empty inputs', () => {
@@ -128,4 +129,29 @@ test('formatPrice correctly outputs USD and PKR amounts', () => {
   const starter = PRICING_PACKAGES[0];
   assert.equal(formatPrice(starter, 'USD'), 'Starting from $49');
   assert.equal(formatPrice(starter, 'PKR'), 'Starting from Rs. 3,000');
+});
+
+test('validateBriefRequest rejects empty or too short brandName', () => {
+  const result = validateBriefRequest({ brandName: 'A', projectType: 'AI Video' });
+  assert.equal(result.isValid, false);
+  assert.ok(result.error);
+});
+
+test('validateBriefRequest rejects missing projectType', () => {
+  const result = validateBriefRequest({ brandName: 'Valid Brand', projectType: '' });
+  assert.equal(result.isValid, false);
+  assert.ok(result.error);
+});
+
+test('validateBriefRequest sanitizes and enforces input limits', () => {
+  const result = validateBriefRequest({
+    brandName: '   Apex DTC Brand   ',
+    projectType: 'Website Development',
+    industry: 'Fashion & Apparel',
+    currency: 'USD',
+  });
+
+  assert.equal(result.isValid, true);
+  assert.equal(result.sanitized?.brandName, 'Apex DTC Brand');
+  assert.equal(result.sanitized?.currency, 'USD');
 });

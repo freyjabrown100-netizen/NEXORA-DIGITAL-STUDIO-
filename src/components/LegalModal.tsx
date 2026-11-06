@@ -82,7 +82,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             <div className="space-y-6">
               <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
                 <span className="text-xs uppercase font-space font-bold text-[#06B6D4] block mb-1">
-                  Effective Date: January 2025 &bull; Nexora Digital Studio
+                  Standard Studio Terms &bull; Nexora Digital Studio
                 </span>
                 <p className="text-slate-200 text-xs sm:text-sm">
                   Welcome to Nexora Digital Studio. By commissioning work, submitting a project brief, or engaging our digital production services, you agree to the following terms and operating standards.
@@ -151,7 +151,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({
             <div className="space-y-6">
               <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10">
                 <span className="text-xs uppercase font-space font-bold text-[#7C3AED] block mb-1">
-                  Privacy Policy &bull; Last Updated: January 2025
+                  Privacy Policy &bull; Active Service Policy
                 </span>
                 <p className="text-slate-200 text-xs sm:text-sm">
                   At Nexora Digital Studio, we value your privacy and handle your project details with strict confidentiality.

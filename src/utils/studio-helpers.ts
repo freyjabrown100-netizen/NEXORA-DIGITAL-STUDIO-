@@ -60,6 +60,63 @@ export function validateContactForm(data: ContactFormData): ValidationResult {
   };
 }
 
+export interface BriefRequestInput {
+  brandName?: unknown;
+  projectType?: unknown;
+  industry?: unknown;
+  targetAudience?: unknown;
+  goal?: unknown;
+  notes?: unknown;
+  currency?: unknown;
+}
+
+export interface BriefValidationResult {
+  isValid: boolean;
+  error?: string;
+  sanitized?: {
+    brandName: string;
+    projectType: string;
+    industry: string;
+    targetAudience: string;
+    goal: string;
+    notes: string;
+    currency: Currency;
+  };
+}
+
+/**
+ * Validates and sanitizes AI creative brief incoming requests with strict length limits.
+ */
+export function validateBriefRequest(input: BriefRequestInput): BriefValidationResult {
+  const brand = typeof input.brandName === 'string' ? input.brandName.trim() : '';
+  const project = typeof input.projectType === 'string' ? input.projectType.trim() : '';
+  const ind = typeof input.industry === 'string' ? input.industry.trim().slice(0, 100) : '';
+  const aud = typeof input.targetAudience === 'string' ? input.targetAudience.trim().slice(0, 200) : '';
+  const g = typeof input.goal === 'string' ? input.goal.trim().slice(0, 300) : '';
+  const n = typeof input.notes === 'string' ? input.notes.trim().slice(0, 500) : '';
+  const curr: Currency = input.currency === 'PKR' ? 'PKR' : 'USD';
+
+  if (!brand || brand.length < 2 || brand.length > 100) {
+    return { isValid: false, error: 'Brand name must be between 2 and 100 characters.' };
+  }
+  if (!project || project.length > 100) {
+    return { isValid: false, error: 'Service / project type is required (maximum 100 characters).' };
+  }
+
+  return {
+    isValid: true,
+    sanitized: {
+      brandName: brand,
+      projectType: project,
+      industry: ind,
+      targetAudience: aud,
+      goal: g,
+      notes: n,
+      currency: curr,
+    },
+  };
+}
+
 /**
  * Formats a pre-filled WhatsApp click-to-chat URL with structured project inquiry.
  */

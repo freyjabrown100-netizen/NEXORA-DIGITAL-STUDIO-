@@ -35,20 +35,31 @@ if (geminiApiKey) {
  */
 app.post('/api/ai-creative-brief', async (req, res) => {
   try {
-    const { brandName, industry, targetAudience, projectType, goal, notes, currency = 'USD' } = req.body;
+    const rawBody = req.body || {};
+    const brand = typeof rawBody.brandName === 'string' ? rawBody.brandName.trim() : '';
+    const project = typeof rawBody.projectType === 'string' ? rawBody.projectType.trim() : '';
+    const ind = typeof rawBody.industry === 'string' ? rawBody.industry.trim().slice(0, 100) : '';
+    const aud = typeof rawBody.targetAudience === 'string' ? rawBody.targetAudience.trim().slice(0, 200) : '';
+    const g = typeof rawBody.goal === 'string' ? rawBody.goal.trim().slice(0, 300) : '';
+    const n = typeof rawBody.notes === 'string' ? rawBody.notes.trim().slice(0, 500) : '';
+    const curr = rawBody.currency === 'PKR' ? 'PKR' : 'USD';
 
-    if (!brandName || !projectType) {
-      return res.status(400).json({ error: 'brandName and projectType are required.' });
+    if (!brand || brand.length < 2 || brand.length > 100) {
+      return res.status(400).json({ error: 'Brand name must be between 2 and 100 characters.' });
+    }
+
+    if (!project || project.length > 100) {
+      return res.status(400).json({ error: 'Service / project type is required (maximum 100 characters).' });
     }
 
     const fallbackBrief = generateFallbackCreativeBrief({
-      brandName,
-      industry: industry || 'Digital Commerce',
-      targetAudience: targetAudience || 'US / Global Consumers & Trendsetters',
-      projectType,
-      goal: goal || 'Rapid brand awareness and high conversion',
-      notes: notes || 'Modern aesthetic',
-      currency,
+      brandName: brand,
+      industry: ind || 'Digital Commerce',
+      targetAudience: aud || 'US / Global Consumers & Trendsetters',
+      projectType: project,
+      goal: g || 'Rapid brand awareness and high conversion',
+      notes: n || 'Modern aesthetic',
+      currency: curr,
     });
 
     if (!geminiApiKey || !ai) {
@@ -63,19 +74,19 @@ app.post('/api/ai-creative-brief', async (req, res) => {
     }
 
     const priceGuide =
-      currency === 'USD'
+      curr === 'USD'
         ? 'Starter: $49, Professional: $149, or Premium: $399 USD'
         : 'Starter: Rs. 3,000, Professional: Rs. 8,000, or Premium: Rs. 15,000 PKR';
 
     const prompt = `
 Client Project Details:
-- Brand Name: ${brandName}
-- Industry: ${industry || 'Not specified'}
-- Target Audience: ${targetAudience || 'US / International consumers'}
-- Service Type Requested: ${projectType}
-- Main Goal: ${goal || 'Brand awareness and customer conversions'}
-- Additional Notes / Vision: ${notes || 'None'}
-- Selected Currency: ${currency}
+- Brand Name: ${brand}
+- Industry: ${ind || 'Not specified'}
+- Target Audience: ${aud || 'US / International consumers'}
+- Service Type Requested: ${project}
+- Main Goal: ${g || 'Brand awareness and customer conversions'}
+- Additional Notes / Vision: ${n || 'None'}
+- Selected Currency: ${curr}
 
 Please produce a high-caliber Creative Strategy & Production Proposal tailored for Nexora Digital Studio.
 Ensure the strategy considers major modern advertising channels (such as TikTok Spark Ads, Meta Reels 9:16 vertical video, and modern responsive web standards).
@@ -87,7 +98,7 @@ Include:
 5. Key Value Proposition for their brand.
 `;
 
-    const response = await ai.models.generateContent({
+    const briefPromise = ai.models.generateContent({
       model: 'gemini-3.8-flash',
       contents: prompt,
       config: {
@@ -96,20 +107,33 @@ Include:
       },
     });
 
+    const timeoutPromise = new Promise<never>((_, reject) => {
+      setTimeout(() => reject(new Error('AI generation timed out.')), 8500);
+    });
+
+    const response = await Promise.race([briefPromise, timeoutPromise]);
     const briefText = response.text || fallbackBrief;
 
     return res.json({
       success: true,
       brief: briefText,
     });
-  } catch (error: any) {
+  } catch (error: unknown) {
+    // Log internal error safely on the server console without leaking to client
     console.error('Error generating AI creative brief:', error);
-    const fallbackBrief = generateFallbackCreativeBrief(req.body);
+    const rawBody = req.body || {};
+    const fallbackBrief = generateFallbackCreativeBrief({
+      brandName: typeof rawBody.brandName === 'string' ? rawBody.brandName.slice(0, 100) : 'Your Brand',
+      industry: typeof rawBody.industry === 'string' ? rawBody.industry.slice(0, 100) : 'Digital Commerce',
+      targetAudience: typeof rawBody.targetAudience === 'string' ? rawBody.targetAudience.slice(0, 200) : '',
+      projectType: typeof rawBody.projectType === 'string' ? rawBody.projectType.slice(0, 100) : 'Creative Campaign',
+      currency: rawBody.currency === 'PKR' ? 'PKR' : 'USD',
+    });
     return res.json({
       success: true,
       isFallback: true,
       brief: fallbackBrief,
-      warning: error?.message || 'Generated using studio creative engine baseline.',
+      warning: 'The studio AI engine is temporarily busy. A tailored studio baseline proposal has been formulated.',
     });
   }
 });

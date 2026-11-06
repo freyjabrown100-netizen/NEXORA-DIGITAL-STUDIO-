@@ -183,7 +183,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar with Functional Terms & Privacy Modals */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <p className="text-[#94A3B8]">
-            &copy; 2025 Nexora Digital Studio. All rights reserved. | Crafted with{' '}
+            &copy; {new Date().getFullYear()} Nexora Digital Studio. All rights reserved. | Crafted with{' '}
             <Heart className="w-3.5 h-3.5 text-red-500 inline fill-current mx-0.5" />
           </p>
           <div className="flex items-center gap-6 text-[#94A3B8]">
