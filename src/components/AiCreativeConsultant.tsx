@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, BrainCircuit, ArrowRight, Check, Copy, MessageCircle, Send, Loader2 } from 'lucide-react';
+import { Sparkles, BrainCircuit, ArrowRight, Check, Copy, MessageCircle, Send, Loader2, Info } from 'lucide-react';
 import { STUDIO_WHATSAPP_INTL, Currency } from '../utils/studio-helpers';
 
 interface AiCreativeConsultantProps {
@@ -21,6 +21,7 @@ export const AiCreativeConsultant: React.FC<AiCreativeConsultantProps> = ({
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [apiNotice, setApiNotice] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
   const handleGenerate = async (e: React.FormEvent) => {
@@ -32,6 +33,7 @@ export const AiCreativeConsultant: React.FC<AiCreativeConsultantProps> = ({
 
     setLoading(true);
     setError(null);
+    setApiNotice(null);
     setResult(null);
 
     try {
@@ -52,6 +54,13 @@ export const AiCreativeConsultant: React.FC<AiCreativeConsultantProps> = ({
       const data = await response.json();
       if (!response.ok || !data.success) {
         throw new Error(data.error || 'Failed to generate brief');
+      }
+
+      if (data.apiKeyMissing) {
+        setApiNotice(
+          data.message ||
+            'Notice: Live AI generation requires GEMINI_API_KEY in Netlify or Cloud Run environment variables. Showing instant studio strategy framework below.'
+        );
       }
 
       setResult(data.brief);
@@ -217,7 +226,7 @@ export const AiCreativeConsultant: React.FC<AiCreativeConsultantProps> = ({
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
               <div className="flex items-center gap-2 text-xs text-[#94A3B8]">
                 <Sparkles className="w-4 h-4 text-[#06B6D4]" />
-                <span>Powered by Gemini 4 Argon with Deep Reasoning ({currency})</span>
+                <span>Powered by Gemini 3.8 Flash Creative Intelligence ({currency})</span>
               </div>
 
               <button
@@ -244,6 +253,16 @@ export const AiCreativeConsultant: React.FC<AiCreativeConsultantProps> = ({
           {/* Generated Result Output */}
           {result && (
             <div className="mt-8 pt-8 border-t border-white/15 animate-in fade-in duration-300">
+              {apiNotice && (
+                <div className="mb-4 p-4 rounded-xl bg-cyan-950/40 border border-[#06B6D4]/30 text-cyan-200 text-xs flex items-start gap-3">
+                  <Info className="w-4 h-4 text-[#06B6D4] shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-semibold text-white block mb-0.5">Deployment Configuration Note</span>
+                    {apiNotice}
+                  </div>
+                </div>
+              )}
+
               <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                 <div className="flex items-center gap-2">
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />

@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { GoogleGenAI, ThinkingLevel } from '@google/genai';
+import { GoogleGenAI } from '@google/genai';
 
 dotenv.config();
 
@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
 app.use(express.json());
 
@@ -31,7 +31,7 @@ if (geminiApiKey) {
 
 /**
  * AI Creative Proposal & Strategy Generator
- * Uses gemini-4-argon with ThinkingLevel.HIGH (no maxOutputTokens set)
+ * Uses supported model gemini-3.8-flash server-side
  */
 app.post('/api/ai-creative-brief', async (req, res) => {
   try {
@@ -41,19 +41,23 @@ app.post('/api/ai-creative-brief', async (req, res) => {
       return res.status(400).json({ error: 'brandName and projectType are required.' });
     }
 
-    if (!ai) {
-      const fallbackBrief = generateFallbackCreativeBrief({
-        brandName,
-        industry: industry || 'Digital Commerce',
-        targetAudience: targetAudience || 'US / Global Consumers & Trendsetters',
-        projectType,
-        goal: goal || 'Rapid brand awareness and high conversion',
-        notes: notes || 'Modern aesthetic',
-        currency,
-      });
+    const fallbackBrief = generateFallbackCreativeBrief({
+      brandName,
+      industry: industry || 'Digital Commerce',
+      targetAudience: targetAudience || 'US / Global Consumers & Trendsetters',
+      projectType,
+      goal: goal || 'Rapid brand awareness and high conversion',
+      notes: notes || 'Modern aesthetic',
+      currency,
+    });
+
+    if (!geminiApiKey || !ai) {
       return res.json({
         success: true,
         isFallback: true,
+        apiKeyMissing: true,
+        message:
+          'GEMINI_API_KEY environment variable is not configured. Please set GEMINI_API_KEY in your hosting environment (Netlify or Cloud Run) to enable live AI responses.',
         brief: fallbackBrief,
       });
     }
@@ -84,18 +88,15 @@ Include:
 `;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-4-argon',
+      model: 'gemini-3.8-flash',
       contents: prompt,
       config: {
-        thinkingConfig: {
-          thinkingLevel: ThinkingLevel.HIGH,
-        },
         systemInstruction:
           'You are the Lead Creative Director and Tech Architect at Nexora Digital Studio. You work with fast-growing brands across the United States, Europe, and globally. Your tone is visionary, highly professional, sharp, and encouraging. Deliver a structured, inspiring proposal that highlights how AI video production, premium graphic design, and modern web development can scale the client\'s brand.',
       },
     });
 
-    const briefText = response.text || 'Proposal generated successfully.';
+    const briefText = response.text || fallbackBrief;
 
     return res.json({
       success: true,

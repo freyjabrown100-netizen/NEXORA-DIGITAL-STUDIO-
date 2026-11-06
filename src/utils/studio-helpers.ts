@@ -86,14 +86,14 @@ export interface PortfolioItem {
   title: string;
   category: 'video' | 'design' | 'web';
   categoryLabel: string;
+  sampleType: 'Concept Project' | 'Demo Work';
   description: string;
   tags: string[];
   gradient: string;
   icon: string;
   stats: string;
   aspectRatio: string;
-  clientCountry?: string;
-  metricsResult?: string;
+  specsDetail: string;
   imageUrl?: string;
 }
 

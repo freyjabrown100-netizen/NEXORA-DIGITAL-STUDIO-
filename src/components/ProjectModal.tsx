@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Sparkles, ExternalLink, CheckCircle2, MessageCircle, ShieldCheck, TrendingUp } from 'lucide-react';
+import { X, CheckCircle2, MessageCircle, ShieldCheck, Cpu } from 'lucide-react';
 import { PortfolioItem, STUDIO_WHATSAPP_INTL } from '../utils/studio-helpers';
 
 interface ProjectModalProps {
@@ -19,7 +19,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
       aria-labelledby="modal-project-title"
     >
       <div
-        className="glass-card max-w-2xl w-full rounded-3xl border border-white/20 p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto shadow-2xl shadow-[#7C3AED]/20 text-left"
+        className="glass-card max-w-2xl w-full rounded-3xl border border-white/20 p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto shadow-2xl shadow-[#7C3AED]/20 text-left bg-[#0E0E1B]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -46,14 +46,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           <div className="relative z-10 text-center px-4">
             <span className="text-4xl mb-2 block">{project.icon}</span>
             <div className="flex items-center justify-center gap-2">
-              <span className="text-xs uppercase tracking-widest text-white/90 font-space font-bold px-3 py-1 rounded-full bg-black/40 backdrop-blur-sm border border-white/20">
-                {project.categoryLabel} Showcase
+              <span className="text-xs uppercase tracking-widest text-white/90 font-space font-bold px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm border border-white/20">
+                {project.categoryLabel}
               </span>
-              {project.clientCountry && (
-                <span className="text-[10px] uppercase font-mono px-2.5 py-1 rounded-full bg-[#06B6D4]/30 text-[#06B6D4] border border-[#06B6D4]/40 backdrop-blur-md font-bold">
-                  {project.clientCountry}
-                </span>
-              )}
+              <span className="text-[10px] uppercase font-mono px-2.5 py-1 rounded-full bg-[#06B6D4]/30 text-[#06B6D4] border border-[#06B6D4]/40 backdrop-blur-md font-bold">
+                {project.sampleType}
+              </span>
             </div>
           </div>
           <div className="absolute bottom-3 right-3 text-xs text-white/90 bg-black/50 px-3 py-1 rounded-md font-mono border border-white/10">
@@ -68,7 +66,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               {project.title}
             </h3>
             <span className="px-3 py-1 rounded-full bg-[#7C3AED]/20 text-[#A855F7] text-xs font-semibold border border-[#7C3AED]/30 font-space">
-              Verified Production Case Study
+              {project.sampleType}
             </span>
           </div>
 
@@ -76,13 +74,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             {project.description}
           </p>
 
-          {/* Metric Highlight if available */}
-          {project.metricsResult && (
-            <div className="p-3.5 rounded-xl bg-gradient-to-r from-[#06B6D4]/15 to-[#7C3AED]/15 border border-[#06B6D4]/30 flex items-center gap-3 text-sm font-space text-white">
-              <TrendingUp className="w-5 h-5 text-[#06B6D4] flex-shrink-0" />
+          {/* Technical Specifications */}
+          {project.specsDetail && (
+            <div className="p-4 rounded-xl bg-gradient-to-r from-[#06B6D4]/15 to-[#7C3AED]/15 border border-[#06B6D4]/30 flex items-start gap-3 text-sm font-space text-white">
+              <Cpu className="w-5 h-5 text-[#06B6D4] flex-shrink-0 mt-0.5" />
               <div>
-                <span className="text-xs text-[#94A3B8] block uppercase">Campaign Impact:</span>
-                <span className="font-bold text-white">{project.metricsResult}</span>
+                <span className="text-xs text-[#94A3B8] block uppercase font-mono mb-0.5">Production Technical Specifications:</span>
+                <span className="text-slate-200 text-xs sm:text-sm font-normal leading-relaxed">{project.specsDetail}</span>
               </div>
             </div>
           )}
@@ -102,12 +100,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Standards & Highlights */}
           <div className="glass-card p-4 rounded-xl border border-white/10 space-y-2 mt-4 bg-white/[0.02]">
             <span className="text-xs font-bold text-white uppercase tracking-wider block font-space">
-              Production Standards & Guarantees:
+              Production Standards & Deliverables:
             </span>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm text-[#94A3B8]">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#06B6D4]" />
-                <span>US Ad Platform Compliant (Meta & TikTok)</span>
+                <span>Ad Platform Compliant (Meta & TikTok Specs)</span>
               </div>
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
@@ -115,11 +113,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#06B6D4]" />
-                <span>Full Source Assets (Figma / Premiere)</span>
+                <span>Full Source Assets (Figma / Vectors / 4K)</span>
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#06B6D4]" />
-                <span>EST / PST Fast Turnaround</span>
+                <span>Defined Revision Rounds on All Tiers</span>
               </div>
             </div>
           </div>
@@ -127,7 +125,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {/* Action buttons */}
           <div className="pt-4 flex flex-col sm:flex-row gap-3">
             <a
-              href={`https://wa.me/${STUDIO_WHATSAPP_INTL}?text=${encodeURIComponent(`Hi Nexora! I saw the "${project.title}" case study on your website and want something similar for my US brand.`)}`}
+              href={`https://wa.me/${STUDIO_WHATSAPP_INTL}?text=${encodeURIComponent(`Hi Nexora! I saw the "${project.title}" sample on your website and would like to commission a project with similar creative specifications.`)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="glow-btn px-6 py-3.5 rounded-xl text-white font-semibold text-sm flex items-center justify-center gap-2 flex-1"
