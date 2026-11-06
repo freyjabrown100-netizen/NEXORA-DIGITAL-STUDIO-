@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle, MessageCircle, ShieldCheck, CreditCard } from 'lucide-react';
+import { ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
 import { STUDIO_PHONE, STUDIO_WHATSAPP_INTL } from '../utils/studio-helpers';
 
 export const Faq: React.FC = () => {
@@ -7,32 +7,32 @@ export const Faq: React.FC = () => {
 
   const faqs = [
     {
-      q: 'What payment methods do you accept for US & international clients?',
-      a: 'We accept all major US and international payment solutions including Stripe, Credit/Debit Cards (Visa, MasterCard, American Express), PayPal, and Wise (TransferWise). Invoicing is transparent with receipts provided. For clients in Pakistan, JazzCash, EasyPaisa, and local bank transfers are also supported.',
+      q: 'What payment methods and terms do you use for US & international clients?',
+      a: 'We work on transparent 50/50 milestone invoicing: a 50% commencement deposit prior to kickoff, and the final 50% balance upon final approval before source file delivery. We accept Wise (Direct Bank Wire / ACH transfer), International Bank Wire Transfer (SWIFT), and Payoneer / Direct Invoicing with official digital receipts. For clients in Pakistan, Raast, local bank transfers, JazzCash, and EasyPaisa are fully supported.',
     },
     {
       q: 'How does your studio handle US time zones (EST, CST, PST)?',
-      a: 'Our digital production team maintains active coverage during US business hours (both Eastern and Pacific time). We communicate smoothly via Slack, Email, WhatsApp, and scheduled Google Meet or Zoom video calls so you never experience communication delays.',
+      a: 'Our digital production team maintains active coverage during US business hours (both Eastern and Pacific time). We communicate smoothly via Email, WhatsApp, and scheduled Google Meet or Zoom video calls so you never experience communication delays.',
     },
     {
       q: 'Do I own 100% of the commercial rights and source files?',
-      a: 'Yes! Upon final delivery, 100% commercial copyright and intellectual property rights are fully transferred to you. You own all video exports, posters, and web code with no royalties. We also provide signed standard mutual NDAs for sensitive brand campaigns.',
+      a: 'Yes! Upon final invoice payment, 100% commercial copyright and intellectual property rights are fully transferred to you. You own all video exports, posters, and web code with zero ongoing royalties. We also provide signed standard mutual NDAs for sensitive brand campaigns.',
     },
     {
       q: 'How long does project delivery take, and do you offer rush turnaround?',
-      a: 'Standard projects are delivered within 3-5 business days (7-12 days for comprehensive multi-page websites). If you have an urgent advertising campaign, TikTok launch, or product drop, we offer 24-48 hour rush delivery options upon request.',
+      a: 'Standard turnaround is 3-5 business days for Starter assets, 5-7 days for Professional multi-asset packages, and 7-12 days for comprehensive multi-page websites. If you have an urgent advertising campaign, TikTok launch, or product drop, 24-48 hour rush delivery options can be arranged upon request.',
     },
     {
       q: 'How do revisions work if I need adjustments?',
-      a: 'We offer revisions on all packages to ensure pixel-perfect results. Our Starter package includes 2 comprehensive revision rounds, while our Professional and Premium tiers include unlimited revisions until you are completely thrilled with the final assets.',
+      a: 'Revisions are structured into defined rounds to maintain focused progress: our Starter tier includes 2 dedicated revision rounds; our Professional tier includes up to 4 iterative rounds; and our Premium tier includes up to 6 comprehensive rounds. Revisions cover pacing, grading, sound adjustments, copy, and visual polish within original project scope.',
     },
     {
       q: 'Are your video and poster assets compliant with US advertising rules?',
-      a: 'Yes, 100%. All video content is rendered to native aspect ratios (9:16 vertical for TikTok & Meta Reels, 16:9 for YouTube & TV, 1:1 for feed posts) in 4K/60fps with licensed or custom-synthesized audio that passes Meta, TikTok Spark Ads, and Google Ads commercial clearance.',
+      a: 'Yes, 100%. All video content is rendered to native aspect ratios (9:16 vertical for TikTok & Meta Reels, 16:9 for YouTube & TV, 1:1 for feed posts) in 4K/60fps with clear text safe zones and licensed or custom audio that passes Meta Ads, TikTok Spark Ads, and Google Ads commercial clearance.',
     },
     {
-      q: 'How do I place an order or get started?',
-      a: `Getting started is effortless. You can submit the project form below, reach out on WhatsApp at ${STUDIO_PHONE}, or schedule a free 15-minute concept discovery call. We reply within 24 hours with an actionable roadmap.`,
+      q: 'How do I place an inquiry or get started?',
+      a: `Getting started is simple. You can submit the project inquiry form below, reach out on WhatsApp at ${STUDIO_PHONE}, or schedule a free 15-minute concept discovery call. We reply within 24 hours with an actionable roadmap.`,
     },
   ];
 
@@ -56,7 +56,7 @@ export const Faq: React.FC = () => {
             Frequently Asked <span className="gradient-text">Questions</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#94A3B8]">
-            Everything you need to know about working with Nexora for US & global campaigns.
+            Clear, transparent answers regarding payment methods, revision limits, turnarounds, and ownership.
           </p>
         </div>
 
@@ -107,11 +107,11 @@ export const Faq: React.FC = () => {
               Have a custom enterprise request or need an NDA first?
             </span>
             <span className="text-xs text-[#94A3B8]">
-              We respond promptly during EST and PST business hours.
+              We respond promptly during EST, CST, and PST business hours.
             </span>
           </div>
           <a
-            href={`https://wa.me/${STUDIO_WHATSAPP_INTL}?text=${encodeURIComponent('Hello Nexora! I am a US brand inquiry and would like to ask a question.')}`}
+            href={`https://wa.me/${STUDIO_WHATSAPP_INTL}?text=${encodeURIComponent('Hello Nexora! I have a question regarding an upcoming campaign.')}`}
             target="_blank"
             rel="noopener noreferrer"
             className="glow-btn px-5 py-2.5 rounded-full text-white text-xs font-bold inline-flex items-center gap-2 whitespace-nowrap font-space"

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Check, Sparkles, ArrowRight, MessageCircle, Shield, CreditCard, DollarSign } from 'lucide-react';
-import { PRICING_PACKAGES, STUDIO_WHATSAPP_INTL, Currency, formatPrice } from '../utils/studio-helpers';
+import { Check, Sparkles, ArrowRight, MessageCircle, Shield, CreditCard, Clock, FileCheck } from 'lucide-react';
+import { PRICING_PACKAGES, STUDIO_WHATSAPP_INTL, Currency, HONEST_PAYMENT_METHODS } from '../utils/studio-helpers';
 
 interface PricingProps {
   onSelectTier?: (tierName: string) => void;
@@ -34,13 +34,13 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectTier, currency, onCurr
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-[#06B6D4] text-xs font-semibold tracking-wider uppercase font-space mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Investment Plans</span>
+            <span>Investment Plans & Clear Scope</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-poppins tracking-tight">
             Transparent <span className="gradient-text">Pricing</span>
           </h2>
           <p className="mt-4 text-base sm:text-lg text-[#94A3B8]">
-            World-class studio quality at honest, transparent rates. Full commercial rights included in every package.
+            World-class studio quality with defined revision limits, honest payment terms, and complete commercial ownership.
           </p>
 
           {/* Currency Toggle Switch in Header */}
@@ -112,11 +112,13 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectTier, currency, onCurr
                       </span>
                     </div>
                     <div className="flex flex-wrap items-center gap-2 text-xs text-[#94A3B8] mt-3">
-                      <span className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-space font-medium">
-                        ⏱️ {pkg.deliveryDays}
+                      <span className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-space font-medium text-slate-300 flex items-center gap-1">
+                        <Clock className="w-3 h-3 text-[#06B6D4]" />
+                        {pkg.deliveryDays}
                       </span>
-                      <span className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-space font-medium text-emerald-400">
-                        🔄 {pkg.revisions}
+                      <span className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 font-space font-medium text-emerald-400 flex items-center gap-1">
+                        <FileCheck className="w-3 h-3" />
+                        {pkg.revisions}
                       </span>
                     </div>
                   </div>
@@ -156,34 +158,41 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectTier, currency, onCurr
           })}
         </div>
 
-        {/* Global Payments & Risk-Free Guarantees Bar */}
-        <div className="p-6 rounded-3xl glass-card border border-white/10 max-w-4xl mx-auto space-y-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-white/10 pb-4">
+        {/* Honest Milestone Terms & Payment Details Box */}
+        <div className="p-6 rounded-3xl glass-card border border-white/10 max-w-4xl mx-auto space-y-5">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-white/10 pb-5">
             <div className="flex items-center gap-3">
               <Shield className="w-6 h-6 text-[#06B6D4] flex-shrink-0" />
               <div className="text-left">
                 <span className="text-sm font-bold text-white block font-poppins">
-                  100% Satisfaction & Commercial Copyright Guarantee
+                  Commercial Copyright & Milestone Security Terms
                 </span>
                 <span className="text-xs text-[#94A3B8]">
-                  Unlimited revisions on eligible tiers. Full IP ownership transferred on completion.
+                  Defined revision rounds included. 100% intellectual property ownership transferred upon final payment.
                 </span>
               </div>
             </div>
             <div className="flex items-center gap-2 text-xs font-space text-slate-300">
-              <span className="px-2.5 py-1 rounded bg-white/5 border border-white/10">US NDA Ready</span>
-              <span className="px-2.5 py-1 rounded bg-white/5 border border-white/10">Invoices Included</span>
+              <span className="px-2.5 py-1 rounded bg-white/5 border border-white/10">50/50 Milestones</span>
+              <span className="px-2.5 py-1 rounded bg-white/5 border border-white/10">Signed NDA Ready</span>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-[#94A3B8]">
-            <div className="flex items-center gap-2">
+          {/* Genuine Payment Methods */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider font-space">
               <CreditCard className="w-4 h-4 text-[#7C3AED]" />
-              <span className="text-white font-medium">Accepted Global Payments:</span>
-              <span className="text-slate-300">Stripe &bull; Visa &bull; Mastercard &bull; Amex &bull; PayPal &bull; Wise &bull; Wire</span>
+              <span>Accepted Payment Methods & Invoicing:</span>
             </div>
-            <div className="text-xs text-[#94A3B8]">
-              Local PK: JazzCash, EasyPaisa & Raast also supported
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#94A3B8]">
+              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
+                <strong className="text-white block mb-0.5">US & International Clients:</strong>
+                <span>Wise (Direct Bank Wire/ACH), International Wire Transfer (SWIFT), and Payoneer / Direct Invoicing with official digital receipts.</span>
+              </div>
+              <div className="p-3 rounded-xl bg-white/[0.03] border border-white/5">
+                <strong className="text-white block mb-0.5">Pakistan Domestic Clients:</strong>
+                <span>Raast Instant Interbank Transfer, Local Bank Transfer, JazzCash, and EasyPaisa mobile accounts.</span>
+              </div>
             </div>
           </div>
         </div>
@@ -191,7 +200,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectTier, currency, onCurr
         {/* Custom Quote Note */}
         <div className="mt-12 text-center">
           <p className="text-base text-[#94A3B8] mb-3">
-            Need an enterprise bundle, retainer, or custom turnaround?
+            Need a bespoke retainer, enterprise multi-platform video series, or custom turnaround?
           </p>
           <a
             href={`https://wa.me/${STUDIO_WHATSAPP_INTL}?text=${encodeURIComponent(`Hi Nexora! I have a custom inquiry and would like to discuss a personalized package in ${currency}.`)}`}
@@ -200,7 +209,7 @@ export const Pricing: React.FC<PricingProps> = ({ onSelectTier, currency, onCurr
             className="inline-flex items-center gap-2 text-sm font-semibold text-[#06B6D4] hover:text-white transition-colors"
           >
             <MessageCircle className="w-4 h-4" />
-            <span>Chat directly with our director on WhatsApp or Book a Strategy Call</span>
+            <span>Chat directly with our studio director on WhatsApp</span>
           </a>
         </div>
       </div>

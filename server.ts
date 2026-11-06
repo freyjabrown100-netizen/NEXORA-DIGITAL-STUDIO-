@@ -138,7 +138,7 @@ Create a high-impact narrative centered on *"${brand}: Redefining ${industry}"*.
 #### 4. Recommended Nexora Package
 - **Package**: **${tierPrice}**
 - **Turnaround**: 5-7 Business Days (24-48h Rush Available)
-- **Includes**: 2 AI Videos, 5 Poster Designs, Unlimited Revisions, Full Source Files, 100% Commercial IP Rights, and EST/PST Friendly Support.
+- **Includes**: 2 AI Videos, 5 Poster Designs, Up to 4 Iterative Revision Rounds, Full Source Files, 100% Commercial IP Rights, and EST/PST Friendly Support.
 
 *Ready to bring this vision to life? Click "Send Brief via WhatsApp" or submit the form below!*`;
 }

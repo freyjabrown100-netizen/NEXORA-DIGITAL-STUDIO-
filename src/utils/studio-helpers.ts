@@ -107,6 +107,63 @@ export function filterPortfolioItems(items: PortfolioItem[], activeCategory: str
   return items.filter((item) => item.category === activeCategory);
 }
 
+export interface SocialProfile {
+  platform: 'facebook' | 'instagram' | 'tiktok' | 'youtube' | 'linkedin';
+  url: string;
+  label: string;
+}
+
+/**
+ * Configured studio social media profiles.
+ * Only valid, live studio profile URLs should be added here.
+ * Generic homepages are intentionally omitted.
+ */
+export const STUDIO_SOCIAL_PROFILES: SocialProfile[] = [
+  // Add live verified studio profiles as they launch, e.g.:
+  // { platform: 'instagram', url: 'https://instagram.com/nexora_studio', label: 'Instagram' }
+];
+
+export interface PaymentMethodInfo {
+  method: string;
+  description: string;
+  category: 'international' | 'local';
+}
+
+export const HONEST_PAYMENT_METHODS: PaymentMethodInfo[] = [
+  {
+    method: 'Wise (TransferWise)',
+    description: 'Direct international bank debit, ACH & wire transfers with low fees and transparent rates.',
+    category: 'international',
+  },
+  {
+    method: 'International Bank Wire Transfer',
+    description: 'Direct SWIFT / IBAN business transfers for international project invoicing.',
+    category: 'international',
+  },
+  {
+    method: 'Payoneer / Direct Invoicing',
+    description: 'Itemized milestone invoice with official receipt for corporate accounting.',
+    category: 'international',
+  },
+  {
+    method: 'Raast / Local Bank Transfer (PK)',
+    description: 'Instant zero-fee Pakistani interbank fund transfer via State Bank Raast ID or IBAN.',
+    category: 'local',
+  },
+  {
+    method: 'JazzCash & EasyPaisa (PK)',
+    description: 'Instant mobile wallet payment options for domestic clients.',
+    category: 'local',
+  },
+];
+
+export const STUDIO_PAYMENT_TERMS = {
+  deposit: '50% project commencement deposit upon agreed scope',
+  balance: '50% remaining balance upon final approval before source file release',
+  nda: 'Standard mutual Non-Disclosure Agreement (NDA) available upon request',
+  ipTransfer: '100% intellectual property & commercial copyright transferred upon final invoice settlement',
+};
+
 export interface PricingTier {
   id: string;
   name: string;
@@ -129,14 +186,14 @@ export const PRICING_PACKAGES: PricingTier[] = [
     badge: 'Most Popular for Quick Wins',
     targetAudience: 'Startups, Creators & Small Businesses',
     deliveryDays: '3-5 Business Days',
-    revisions: '2 Revisions Included',
+    revisions: '2 Dedicated Revision Rounds',
     features: [
       '1 High-Impact AI Video OR 3 Graphic Posters OR 1 Landing Page',
-      'Full 1080p/4K High-Resolution Exports',
-      'Complete Commercial Usage Rights (100% IP Transfer)',
-      '2 Comprehensive Revision Rounds',
+      'Full 1080p/4K High-Resolution Final Exports',
+      '100% Commercial Usage Rights (Full IP Transfer Upon Completion)',
+      '2 Dedicated Revision Rounds for Feedback & Polish',
       'Fast Turnaround in 3-5 Business Days',
-      'Direct WhatsApp, Email & Slack Support',
+      'Direct WhatsApp & Email Production Communication',
     ],
   },
   {
@@ -147,15 +204,15 @@ export const PRICING_PACKAGES: PricingTier[] = [
     badge: 'Best Value for DTC & E-Commerce',
     targetAudience: 'Growing Brands, E-Commerce & Agencies',
     deliveryDays: '5-7 Business Days',
-    revisions: 'Unlimited Revisions',
+    revisions: 'Up to 4 Iterative Revision Rounds',
     features: [
       '2 Viral AI Videos (Reels/TikTok/Ads) + 5 High-Converting Posters',
-      'Full Source Files (Figma, Adobe, Premiere/After Effects assets)',
+      'Full Source Files (Figma layouts, Adobe & Premiere/AE project assets)',
       '100% Commercial Copyright & Broadcast Licensing',
-      'Unlimited Revisions Until 100% Delighted',
-      'Dedicated Account Manager (US EST/PST Timezone Aligned)',
+      'Up to 4 Iterative Revision Rounds to Ensure Exact Execution',
+      'Direct Project Coordinator (Active Coverage During US EST/PST Hours)',
       'Turnaround in 5-7 Business Days',
-      'Rush 48-Hour Delivery Available Upon Request',
+      '50% Milestone Commencement Deposit, 50% Upon Final Delivery',
     ],
     isFeatured: true,
   },
@@ -167,15 +224,15 @@ export const PRICING_PACKAGES: PricingTier[] = [
     badge: 'Complete Brand Launch Suite',
     targetAudience: 'Established Brands, SaaS & Global Businesses',
     deliveryDays: '7-12 Business Days',
-    revisions: 'Unlimited Revisions',
+    revisions: 'Up to 6 Comprehensive Revision Rounds',
     features: [
-      'Full Responsive Modern Website + Video Ads + Graphic Suite',
-      '30 Days Free Technical & Maintenance Support',
-      'High-Converting SEO & Google Schema Integration',
-      'Full Brand Kit: Logos, Social Templates, Video Banners',
-      'Unlimited Revisions & VIP Direct Communication',
+      'Full Responsive Custom Website + Video Ads + Graphic Suite',
+      'Up to 6 Comprehensive Revision Rounds with Priority Feedback Iteration',
+      '30 Days Free Technical & Maintenance Support Post-Launch',
+      'Complete Brand Kit: Logos, Social Templates, Vector Banners',
       'Signed Mutual NDA Available on Request',
-      'US Legal / Enterprise Invoicing via Stripe & PayPal',
+      'Itemized Milestone Invoicing via Wise, Wire Transfer, or Payoneer',
+      '50% Milestone Deposit, 50% Upon Final Deliverable Approval',
     ],
   },
 ];

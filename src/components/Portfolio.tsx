@@ -89,7 +89,7 @@ export const Portfolio: React.FC = () => {
       category: 'web',
       categoryLabel: 'Website',
       description: 'Modern, mobile-first business storefront featuring fluid checkout navigation, interactive product previews, and instant multi-currency payment integration.',
-      tags: ['Shopify Ready', 'Mobile First', 'Stripe Integrated'],
+      tags: ['Shopify Ready', 'Mobile First', 'Multi-Currency Ready'],
       gradient: 'bg-gradient-to-tr from-[#2E1065] via-[#4338CA] to-[#0284C7]',
       icon: '💎',
       stats: '0.8s Load Speed',

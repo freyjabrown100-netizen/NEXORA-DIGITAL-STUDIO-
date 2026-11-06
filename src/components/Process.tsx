@@ -35,7 +35,7 @@ export const Process: React.FC = () => {
       icon: Rocket,
       emoji: '🚀',
       title: 'You Get Results',
-      description: 'Swift delivery in 3-7 days with revisions included until you are 100% delighted and ready to launch.',
+      description: 'Swift delivery in 3-7 days with structured revision rounds included for your final deliverable sign-off.',
       accent: 'from-[#10B981] to-[#06B6D4]',
       color: '#10B981',
     },
