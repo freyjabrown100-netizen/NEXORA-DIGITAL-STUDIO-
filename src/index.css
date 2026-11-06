@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #0A0A14;
+    --bg-secondary: #12121F;
+    --accent-primary: #7C3AED;
+    --accent-secondary: #06B6D4;
+    --accent-glow: #A855F7;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-space {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* Custom Gradients & Utilities */
+.gradient-text {
+  background: linear-gradient(135deg, #7C3AED, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-alt {
+  background: linear-gradient(135deg, #C084FC, #38BDF8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glass-card {
+  background: rgba(18, 18, 31, 0.7);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow: 0 12px 30px -10px rgba(124, 58, 237, 0.25), 0 0 15px rgba(6, 182, 212, 0.15);
+}
+
+.glow-btn {
+  background: linear-gradient(135deg, #7C3AED, #06B6D4);
+  box-shadow: 0 4px 20px -2px rgba(124, 58, 237, 0.4);
+  transition: all 0.3s ease;
+}
+
+.glow-btn:hover {
+  box-shadow: 0 6px 28px rgba(124, 58, 237, 0.6), 0 0 20px rgba(6, 182, 212, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Floating Particle / Orb Animations */
+@keyframes floatOrb1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+@keyframes floatOrb2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-40px, 40px) scale(1.15);
+  }
+  66% {
+    transform: translate(25px, -30px) scale(0.9);
+  }
+}
+
+@keyframes floatOrb3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(35px, 35px) scale(1.08);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+.animate-orb-1 {
+  animation: floatOrb1 18s ease-in-out infinite;
+}
+
+.animate-orb-2 {
+  animation: floatOrb2 22s ease-in-out infinite;
+}
+
+.animate-orb-3 {
+  animation: floatOrb3 15s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0A14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E1B4B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7C3AED;
+}

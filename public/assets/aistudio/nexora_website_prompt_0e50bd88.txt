@@ -1,0 +1,355 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║          NEXORA DIGITAL STUDIO — COMPLETE WEBSITE GENERATION PROMPT         ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+You are an expert full-stack web developer and UI/UX designer. Your task is to 
+build a complete, single-file, professional business website for a digital 
+services studio. Write everything in ONE complete HTML file with embedded CSS 
+and JavaScript. The website must be fully responsive, modern, and production-ready.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+BUSINESS INFORMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Business Name  : Nexora Digital Studio
+Tagline        : Where Creativity Meets Technology
+Services       : AI Video Creation | Poster & Graphic Design | Website Development
+Phone/WhatsApp : 03371089370
+Email          : elsathompson11223@gmail.com
+Owner          : Creative Digital Professional
+Location       : Pakistan
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DESIGN DIRECTION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Color Palette:
+  - Primary Background : #0A0A14  (deep dark navy)
+  - Secondary BG       : #12121F  (dark card background)
+  - Accent Primary     : #7C3AED  (rich violet/purple)
+  - Accent Secondary   : #06B6D4  (electric cyan)
+  - Accent Glow        : #A855F7  (purple glow)
+  - Text Primary       : #F8FAFC  (near white)
+  - Text Secondary     : #94A3B8  (muted slate)
+  - Gradient           : linear-gradient(135deg, #7C3AED, #06B6D4)
+
+Typography:
+  - Headings  : 'Poppins' (Google Fonts) — Bold, Clean, Modern
+  - Body Text : 'Inter' (Google Fonts) — Readable, Professional
+  - Accents   : 'Space Grotesk' (Google Fonts) — Techy feel
+
+Visual Style:
+  - Dark theme with glowing purple/cyan accents
+  - Glassmorphism cards (backdrop-blur with subtle borders)
+  - Animated gradient hero section
+  - Floating particle or animated background
+  - Smooth scroll animations (IntersectionObserver)
+  - Neon glow effects on hover
+  - Modern, premium, tech-forward aesthetic
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WEBSITE SECTIONS — BUILD ALL OF THESE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SECTION 1: NAVIGATION BAR (Fixed/Sticky)
+  - Logo: "Nexora" in gradient text + "Digital Studio" small
+  - Nav links: Home | Services | Portfolio | Pricing | Contact
+  - Sticky on scroll with blur background effect
+  - Hamburger menu for mobile
+  - CTA button: "Get a Quote" (gradient button, opens WhatsApp)
+  - Smooth underline hover animation on nav links
+
+SECTION 2: HERO SECTION
+  - Animated gradient mesh background (purple + cyan moving blobs)
+  - Main headline: "Transform Your Brand with AI-Powered Creativity"
+  - Sub headline: "Professional AI Videos • Stunning Poster Designs • Custom Websites"
+  - Two buttons: 
+      1. "Start Your Project" → scrolls to contact
+      2. "View Our Work" → scrolls to portfolio
+  - Floating animated badge: "✨ AI-Powered Studio"
+  - Stats row below buttons:
+      • 100+ Projects Completed
+      • 50+ Happy Clients  
+      • 3+ Years Experience
+      • 5-Star Rating ⭐
+
+SECTION 3: ABOUT US
+  - Section title: "Who We Are"
+  - Two columns: left = text, right = decorative graphic/icon grid
+  - Text: Professional description of Nexora Digital Studio
+    "Nexora Digital Studio is a modern creative agency specializing in 
+     AI-powered digital solutions. We blend cutting-edge artificial intelligence 
+     with human creativity to deliver exceptional results for businesses of all 
+     sizes. From viral AI videos to eye-catching graphic designs and fast 
+     websites — we do it all."
+  - 4 feature boxes with icons:
+      🤖 AI-Powered Tools
+      🎨 Creative Excellence  
+      ⚡ Fast Delivery
+      💎 Premium Quality
+
+SECTION 4: SERVICES
+  - Section title: "Our Services"
+  - 3 large glassmorphism cards with glow effect on hover:
+
+  Card 1 — AI Video Creation 🎬
+    Title: "AI Video Production"
+    Desc: "Captivating promotional videos, reels, explainer videos, and 
+           social media content powered by the latest AI technology. 
+           Perfect for businesses, brands, and influencers."
+    Features list:
+      ✓ Promotional & Ad Videos
+      ✓ Social Media Reels
+      ✓ Explainer & Product Videos
+      ✓ AI Avatar Videos
+      ✓ Short-form Content
+    Button: "Get Video Quote"
+
+  Card 2 — Poster & Graphic Design 🖼️
+    Title: "Creative Graphic Design"
+    Desc: "Professional posters, social media graphics, flyers, banners, 
+           and brand visuals that make your business stand out from 
+           the competition."
+    Features list:
+      ✓ Business Posters & Flyers
+      ✓ Social Media Graphics
+      ✓ Logo & Branding
+      ✓ Event Banners
+      ✓ Marketing Materials
+    Button: "Get Design Quote"
+
+  Card 3 — Website Development 🌐
+    Title: "Website Development"
+    Desc: "Modern, fast, and mobile-friendly websites that represent your 
+           brand professionally online. From simple landing pages to full 
+           business websites."
+    Features list:
+      ✓ Business Websites
+      ✓ Portfolio Sites
+      ✓ Landing Pages
+      ✓ Mobile Responsive
+      ✓ SEO Optimized
+    Button: "Get Website Quote"
+
+SECTION 5: HOW WE WORK (Process)
+  - Section title: "How We Work"
+  - 4 steps in horizontal flow with connecting line/arrows:
+    Step 1: 📋 "Tell Us Your Idea" — Share your project requirements with us
+    Step 2: 💬 "We Plan Together" — We discuss and finalize the approach
+    Step 3: 🛠️ "We Create Magic" — Our team brings your vision to life
+    Step 4: 🚀 "You Get Results" — Delivery + revisions until you're happy
+
+SECTION 6: PORTFOLIO / WORK GALLERY
+  - Section title: "Our Work"
+  - Filter tabs: All | Videos | Design | Websites
+  - 6 portfolio placeholder cards in a grid (3 columns desktop, 2 tablet, 1 mobile)
+  - Each card: gradient thumbnail image, project name, category tag
+  - Hover effect: overlay with "View Project" button
+  - Use CSS gradient placeholders since no real images exist yet
+  - Add a note: "Real project samples will be added here"
+
+SECTION 7: PRICING PACKAGES
+  - Section title: "Transparent Pricing"
+  - Subtitle: "Choose the package that fits your needs"
+  - 3 pricing cards:
+
+  Package 1 — STARTER (Most Popular badge)
+    Price: Starting from Rs. 3,000
+    For: Small businesses & startups
+    Includes:
+      ✓ 1 AI Video OR 3 Poster Designs OR 1 Landing Page
+      ✓ 2 Revisions
+      ✓ Delivery in 3-5 Days
+      ✓ WhatsApp Support
+    CTA: "Get Started"
+
+  Package 2 — PROFESSIONAL (Highlighted/Featured)
+    Price: Starting from Rs. 8,000
+    For: Growing businesses
+    Includes:
+      ✓ 2 AI Videos + 5 Poster Designs
+      ✓ Unlimited Revisions
+      ✓ Delivery in 5-7 Days
+      ✓ Priority Support
+      ✓ Source Files Included
+    CTA: "Get Started"
+
+  Package 3 — PREMIUM
+    Price: Starting from Rs. 15,000
+    For: Established brands
+    Includes:
+      ✓ Full Website + AI Videos + Designs
+      ✓ Monthly Maintenance
+      ✓ Unlimited Revisions
+      ✓ 24/7 Support
+      ✓ SEO Setup
+      ✓ Social Media Kit
+    CTA: "Get Started"
+
+  - Note below: "Need something custom? Contact us for a personalized quote."
+
+SECTION 8: TESTIMONIALS
+  - Section title: "What Clients Say"
+  - 3 testimonial cards with:
+    - Star rating (5 stars)
+    - Review text
+    - Client name + role (fictional but realistic Pakistani names)
+    
+  Testimonial 1:
+    "Nexora Digital Studio completely transformed our brand. The AI videos 
+     they created for our business went viral on social media. Absolutely 
+     professional work!"
+    — Ahmed Raza, Restaurant Owner
+
+  Testimonial 2:
+    "The poster designs were stunning! They understood exactly what I needed 
+     and delivered even better than expected. Fast delivery and great 
+     communication throughout."
+    — Sara Khan, Boutique Owner
+
+  Testimonial 3:
+    "Our website was built in just 5 days and it looks incredible. We've 
+     already gotten new customers through it. Highly recommend Nexora!"
+    — Bilal Hussain, Tech Startup Founder
+
+SECTION 9: FAQ (Frequently Asked Questions)
+  - Section title: "Frequently Asked Questions"
+  - Accordion/expandable Q&A — 6 questions:
+    Q1: How long does it take to complete a project?
+        A: Depending on the project type, delivery takes 3-7 business days. 
+           Rush orders are also available.
+    Q2: How do I place an order?
+        A: Simply contact us on WhatsApp at 03371089370 or fill out the 
+           contact form below and we'll get back to you within 24 hours.
+    Q3: Do you offer revisions?
+        A: Yes! We offer revisions on all packages. Number of revisions 
+           depends on your chosen package.
+    Q4: What payment methods do you accept?
+        A: We accept JazzCash, EasyPaisa, and bank transfer. 
+           50% advance, 50% on completion.
+    Q5: Can I see samples before ordering?
+        A: Yes! You can view our portfolio on this website or request 
+           specific samples on WhatsApp.
+    Q6: Do you work with international clients?
+        A: Yes! We work with clients worldwide. Payment can be made via 
+           PayPal or bank transfer for international orders.
+
+SECTION 10: CONTACT SECTION
+  - Section title: "Let's Work Together"
+  - Two columns:
+    
+    LEFT COLUMN — Contact Info:
+      📱 WhatsApp: 03371089370 
+         (Clickable button that opens: https://wa.me/923371089370)
+      📧 Email: elsathompson11223@gmail.com
+         (Clickable mailto link)
+      📍 Location: Pakistan
+      🕐 Working Hours: Mon-Sat, 9 AM - 9 PM
+      
+      Social media icon links (placeholder hrefs):
+        📘 Facebook
+        📸 Instagram  
+        🎵 TikTok
+        ▶️ YouTube
+
+    RIGHT COLUMN — Contact Form:
+      Fields:
+        - Full Name (required)
+        - Email Address (required)
+        - Phone Number
+        - Service Needed (dropdown: AI Video | Poster Design | Website | Other)
+        - Project Description (textarea)
+        - Budget Range (dropdown: Under 5k | 5k-15k | 15k-50k | Custom)
+      
+      Submit button: "Send Message" (gradient button)
+      On submit: Show success message "Thank you! We'll contact you within 24 hours."
+      (Form uses mailto action to send to: elsathompson11223@gmail.com)
+
+SECTION 11: FOOTER
+  - Logo + tagline
+  - 3 columns: Quick Links | Services | Contact
+  - Social media icons
+  - Bottom bar: "© 2025 Nexora Digital Studio. All rights reserved. | Designed with ❤️"
+  - Back to top button (floating, appears on scroll)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TECHNICAL REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HTML/CSS/JS Requirements:
+  ✅ Single HTML file — ALL CSS inside <style> tags, ALL JS inside <script> tags
+  ✅ Google Fonts: Import Poppins, Inter, Space Grotesk from fonts.googleapis.com
+  ✅ No external JavaScript libraries needed (pure vanilla JS only)
+  ✅ Font Awesome icons via CDN: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css
+  ✅ CSS Custom Properties (variables) for all colors
+  ✅ CSS Grid and Flexbox for layouts
+  ✅ CSS animations: @keyframes for gradients, floating elements, pulse effects
+  ✅ IntersectionObserver for scroll-reveal animations
+  ✅ Mobile-first responsive design with breakpoints:
+        Mobile  : max-width 768px
+        Tablet  : 769px - 1024px
+        Desktop : 1025px and above
+  ✅ Smooth scrolling: scroll-behavior: smooth on html
+  ✅ Active nav link highlighting on scroll (JavaScript)
+  ✅ Navbar background changes on scroll (adds blur + dark bg)
+  ✅ Portfolio filter tabs with JavaScript show/hide
+  ✅ FAQ accordion with smooth open/close animation
+  ✅ Form validation before submit
+  ✅ Floating WhatsApp button (fixed bottom-right, green, with pulse animation)
+  ✅ Back-to-top button (fixed bottom-right, appears after scrolling 400px)
+  ✅ All buttons have hover transitions (scale + glow effect)
+  ✅ Glassmorphism: background: rgba(255,255,255,0.05); backdrop-filter: blur(10px)
+  ✅ Animated counter for stats in hero section (count up animation)
+  ✅ Particle or animated orb background in hero (CSS only, no library)
+
+Performance:
+  ✅ Lazy loading for images (loading="lazy")
+  ✅ Minimal, clean code — no bloat
+  ✅ Fast load time
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SPECIAL ELEMENTS TO INCLUDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. FLOATING WHATSAPP BUTTON (always visible):
+   - Fixed position: bottom-right corner
+   - Green circle with WhatsApp icon
+   - Tooltip on hover: "Chat with us on WhatsApp"
+   - Pulse animation ring around it
+   - Links to: https://wa.me/923371089370
+
+2. ANIMATED HERO BACKGROUND:
+   - 3-4 large blurred gradient orbs (purple + cyan) 
+   - Slowly moving/pulsing using CSS @keyframes
+   - Creates a dreamy, premium dark atmosphere
+
+3. SCROLL REVEAL ANIMATIONS:
+   - Elements fade in and slide up as user scrolls
+   - Staggered timing for card grids
+   - Smooth, subtle — not overdone
+
+4. GLOWING SERVICE CARDS:
+   - On hover: purple or cyan glow border appears
+   - Slight scale transform (1.03)
+   - Smooth 0.3s transition
+
+5. GRADIENT TEXT on important headings:
+   - Use: background: linear-gradient(135deg, #7C3AED, #06B6D4);
+          -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+
+6. STATS COUNTER ANIMATION:
+   - Numbers count up from 0 to final value when visible on screen
+   - Triggered by IntersectionObserver
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OUTPUT FORMAT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Output ONLY the complete HTML code. 
+Start with <!DOCTYPE html> and end with </html>.
+Do NOT include any explanation, comments outside the code, or markdown formatting.
+Write complete, working, production-ready code.
+Every section listed above MUST be included.
+The website should look like it was built by a professional agency.
+
+NOW GENERATE THE COMPLETE WEBSITE CODE:

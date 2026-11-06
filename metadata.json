@@ -1,0 +1,6 @@
+{
+  "name": "Nexora Digital Studio",
+  "description": "Where Creativity Meets Technology — AI Video Production, Creative Graphic Design, and Website Development.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
