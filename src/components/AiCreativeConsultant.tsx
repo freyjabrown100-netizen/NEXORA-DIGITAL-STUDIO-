@@ -51,7 +51,7 @@ export const AiCreativeConsultant: React.FC<AiCreativeConsultantProps> = ({
         }),
       });
 
-      const data = await response.json();
+      const data = (await response.json()) as any;
       if (!response.ok || !data.success) {
         throw new Error(data.error || 'Failed to generate brief');
       }
@@ -59,7 +59,7 @@ export const AiCreativeConsultant: React.FC<AiCreativeConsultantProps> = ({
       if (data.apiKeyMissing) {
         setApiNotice(
           data.message ||
-            'Notice: Live AI generation requires GEMINI_API_KEY in Netlify or Cloud Run environment variables. Showing instant studio strategy framework below.'
+            'Notice: Live AI generation requires GEMINI_API_KEY in Cloudflare Worker environment secrets (wrangler secret put GEMINI_API_KEY). Showing instant studio strategy framework below.'
         );
       }
 
