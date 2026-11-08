@@ -129,7 +129,7 @@ Include:
       apiKey,
       httpOptions: {
         headers: {
-          'User-Agent': 'aistudio-build-cloudflare',
+          'User-Agent': 'aistudio-build',
         },
       },
     });
